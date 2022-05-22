@@ -31,7 +31,8 @@ class LoadingCacheManagementServiceTest {
     @SneakyThrows
     @Test
     void createCache() {
-        LoadingCache<Integer, TestEntity> testCache = loadingCacheManagementService.createCache("testCache", loadingCacheManagementService.getRefreshStrategy(), findTestFunction());
+        String cacheName = "testCache";
+        LoadingCache<Integer, TestEntity> testCache = loadingCacheManagementService.createCache(cacheName, loadingCacheManagementService.getRefreshStrategy(), findTestFunction());
 
         TestEntity testEntity1 = testCache.get(1);
         TestEntity testEntity2 = testCache.get(2);
@@ -44,6 +45,7 @@ class LoadingCacheManagementServiceTest {
         testCache.asMap().forEach((key, value) -> {
             System.out.println(key + " : " + value);
         });
+        System.out.println(loadingCacheManagementService.cacheInformation(cacheName));
     }
 
     @Test
