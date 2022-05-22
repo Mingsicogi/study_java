@@ -1,4 +1,4 @@
-package minssogi.study.resilience4j.app;
+package minssogi.study.resilience4j.circuitBreaker;
 
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
@@ -14,7 +14,7 @@ import javax.annotation.PostConstruct;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-public class SampleController {
+public class CircuitBreakerTestController {
 
     private final CircuitBreakerRegistry circuitBreakerRegistry;
     private CircuitBreaker sampleControllerCircuitBreaker;
@@ -26,7 +26,7 @@ public class SampleController {
         sampleControllerCircuitBreaker = circuitBreakerRegistry.circuitBreaker("sampleControllerCircuitBreaker");
     }
 
-    @GetMapping("/resilience4j")
+    @GetMapping("/circuitBreaker")
     public ResponseEntity<String> resilience4j() {
         return sampleControllerCircuitBreaker.decorateCheckedSupplier(this::doSomething).recover((throwable -> {
             if (throwable instanceof ClassCastException) {

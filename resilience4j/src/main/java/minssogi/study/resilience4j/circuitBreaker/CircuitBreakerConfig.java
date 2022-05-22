@@ -1,6 +1,5 @@
-package minssogi.study.resilience4j.config;
+package minssogi.study.resilience4j.circuitBreaker;
 
-import io.github.resilience4j.circuitbreaker.CircuitBreakerConfig;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,15 +8,15 @@ import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
 @Configuration
-public class Resilience4jConfiguration {
+public class CircuitBreakerConfig {
 
     @Bean
     public CircuitBreakerRegistry circuitBreakerRegistry() {
         return CircuitBreakerRegistry.of(this.circuitBreakerConfiguration());
     }
 
-    private CircuitBreakerConfig circuitBreakerConfiguration() {
-        return CircuitBreakerConfig.custom()
+    private io.github.resilience4j.circuitbreaker.CircuitBreakerConfig circuitBreakerConfiguration() {
+        return io.github.resilience4j.circuitbreaker.CircuitBreakerConfig.custom()
                 // 실패 비율 임계치를 백분율로 설정. 실패 비율이 임계치보다 같거나 크면 Circuit이 Open됨.
                 .failureRateThreshold(50)
 
@@ -32,7 +31,7 @@ public class Resilience4jConfiguration {
                 .maxWaitDurationInHalfOpenState(Duration.ofDays(1))
 
                 // sliding window type이 count-based일때 slidingWindowSize 횟수만큼의 호출을 기록하고 집계. time-based 일땐, slidingWindowSize 초동안 호출을 기록하고 집계.
-                .slidingWindowType(CircuitBreakerConfig.SlidingWindowType.COUNT_BASED)
+                .slidingWindowType(io.github.resilience4j.circuitbreaker.CircuitBreakerConfig.SlidingWindowType.COUNT_BASED)
                 .slidingWindowSize(10)
                 .minimumNumberOfCalls(10) // 집계 기준 최소값
 
