@@ -1,5 +1,6 @@
 # Google core library, Guava project study
- 1. cache
+ 1. Cache
+    - A LoadingCache can be useful even if it doesn't evict entries, due to its automatic cache loading.
     - sample code : minssogi.study.guava.cache
     - https://github.com/google/guava/wiki/CachesExplained
- 2. 
+ 3. 
