@@ -13,5 +13,6 @@
    - https://resilience4j.readme.io/docs/bulkhead
    - https://godekdls.github.io/Resilience4j/bulkhead/
 3. RateLimiter
+   - TODO
 4. Retry
 5. TimeLimiter
