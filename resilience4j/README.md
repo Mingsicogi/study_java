@@ -17,5 +17,7 @@
    - sample code : minssogi.study.resilience4j.rateLimiter
    - https://resilience4j.readme.io/docs/ratelimiter
 4. Retry
-   - TODO
+   - 
+   - sample code : minssogi.study.resilience4j.retry
+   - https://resilience4j.readme.io/docs/retry
 5. TimeLimiter
