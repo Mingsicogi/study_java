@@ -13,7 +13,9 @@
    - https://resilience4j.readme.io/docs/bulkhead
    - https://godekdls.github.io/Resilience4j/bulkhead/
 3. RateLimiter
-   - TODO
+   - You can simply decline this over limit request, or build a queue to execute them later or combine these two approaches in some way.
+   - sample code : minssogi.study.resilience4j.rateLimiter
+   - https://resilience4j.readme.io/docs/ratelimiter
 4. Retry
    - TODO
 5. TimeLimiter
