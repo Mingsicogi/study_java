@@ -8,6 +8,7 @@
         <module>java</module>
         <module>guava</module>
         <module>resilience4j</module>
+        <module>caffeine</module>
     </modules>
 
     <parent>
