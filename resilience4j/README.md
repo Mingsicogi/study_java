@@ -17,7 +17,7 @@
    - sample code : minssogi.study.resilience4j.rateLimiter
    - https://resilience4j.readme.io/docs/ratelimiter
 4. Retry
-   - 
+   - Just like the CircuitBreaker module, this module provides an in-memory RetryRegistry which you can use to manage (create and retrieve) Retry instances.
    - sample code : minssogi.study.resilience4j.retry
    - https://resilience4j.readme.io/docs/retry
 5. TimeLimiter
