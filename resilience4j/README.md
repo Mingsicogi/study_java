@@ -21,3 +21,8 @@
    - sample code : minssogi.study.resilience4j.retry
    - https://resilience4j.readme.io/docs/retry
 5. TimeLimiter
+
+----
+### Resilience4j + Spring boot 2
+ - https://resilience4j.readme.io/docs/getting-started-3
+ - 
