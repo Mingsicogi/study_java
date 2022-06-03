@@ -21,6 +21,7 @@
    - sample code : minssogi.study.resilience4j.retry
    - https://resilience4j.readme.io/docs/retry
 5. TimeLimiter
+   - return type should be CompletionStage
 
 ----
 ### Resilience4j + Spring boot 2
