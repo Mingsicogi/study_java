@@ -4,10 +4,14 @@ import lombok.SneakyThrows;
 import minssogi.study.ehcache.app.Product;
 import minssogi.study.ehcache.app.ProductRepository;
 import minssogi.study.ehcache.app.ProductService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.StopWatch;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.concurrent.*;
 
@@ -20,14 +24,17 @@ class EhcacheApplicationTests {
     @Autowired
     private ProductRepository productRepository;
 
+    @Value("${server.port}")
+    private String port;
+
+    private RestTemplate restTemplate = new RestTemplate();
+
     @SneakyThrows
     @Test
     void contextLoads() {
         String productName = "바닐라크림콜드브루";
-        Integer price = 7200;
-        Product savedData = productRepository.saveAndFlush(Product.createProduct(productName, price));
-        productRepository.flush();
-        System.out.println("==== Test data setting completion ====");
+//        callHttp(productName);
+//        Thread.sleep(1000);
 
         int testSize = 1000;
 
@@ -47,12 +54,21 @@ class EhcacheApplicationTests {
                     throw new RuntimeException(e);
                 }
 
-                System.out.println(productService.getProduct(productName).toString());
+                ResponseEntity<Product> response = callHttp(productName);
+                Assertions.assertTrue(response.getStatusCode().is2xxSuccessful());
             });
         }
 
         executorService.shutdown();
         executorService.awaitTermination(1000, TimeUnit.SECONDS);
+
+        stopWatch.stop();
+
+        System.out.println("=== It tooks " + stopWatch.getTotalTimeMillis() + "ms");
+    }
+
+    private ResponseEntity<Product> callHttp(String productName) {
+        return restTemplate.getForEntity("http://localhost:" + port + "/product/" + productName, Product.class);
     }
 
 }

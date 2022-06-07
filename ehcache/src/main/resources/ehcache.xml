@@ -1,6 +1,6 @@
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="false">
 
-    <cache name="commonCache"
+    <cache name="productCache"
            eternal="false"
            maxElementsInMemory="64"
            overflowToDisk="false"
