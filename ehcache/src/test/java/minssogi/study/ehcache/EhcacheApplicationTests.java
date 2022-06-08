@@ -2,11 +2,8 @@ package minssogi.study.ehcache;
 
 import lombok.SneakyThrows;
 import minssogi.study.ehcache.app.Product;
-import minssogi.study.ehcache.app.ProductRepository;
-import minssogi.study.ehcache.app.ProductService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
@@ -18,12 +15,6 @@ import java.util.concurrent.*;
 @SpringBootTest
 class EhcacheApplicationTests {
 
-    @Autowired
-    private ProductService productService;
-
-    @Autowired
-    private ProductRepository productRepository;
-
     @Value("${server.port}")
     private String port;
 
@@ -33,10 +24,9 @@ class EhcacheApplicationTests {
     @Test
     void contextLoads() {
         String productName = "바닐라크림콜드브루";
-//        callHttp(productName);
-//        Thread.sleep(1000);
+        callHttp(productName);
 
-        int testSize = 5000;
+        int testSize = 1000;
 
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
