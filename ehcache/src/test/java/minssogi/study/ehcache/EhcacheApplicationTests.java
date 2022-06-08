@@ -24,7 +24,6 @@ class EhcacheApplicationTests {
     @Test
     void contextLoads() {
         String productName = "바닐라크림콜드브루";
-        callHttp(productName);
 
         int testSize = 1000;
 
