@@ -36,7 +36,7 @@ class EhcacheApplicationTests {
 //        callHttp(productName);
 //        Thread.sleep(1000);
 
-        int testSize = 1000;
+        int testSize = 5000;
 
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
