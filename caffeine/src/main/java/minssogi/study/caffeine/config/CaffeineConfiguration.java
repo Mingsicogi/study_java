@@ -31,8 +31,8 @@ public class CaffeineConfiguration {
     public LoadingCache<Object, Object> productCache() {
         return Caffeine.newBuilder()
                 .maximumSize(10_000)
-                .expireAfterWrite(Duration.ofMinutes(5))
-                .refreshAfterWrite(Duration.ofMinutes(1))
+//                .expireAfterWrite(Duration.ofMinutes(5))
+                .refreshAfterWrite(Duration.ofSeconds(1))
                 .build((key) -> productRepository.findProductByProductName((String) key));
     }
 }
