@@ -2,3 +2,10 @@ spring:
   cache:
     ehcache:
       config: classpath:ehcache.xml
+
+  datasource:
+    driver-class-name: org.h2.Driver
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop

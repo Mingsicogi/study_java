@@ -9,6 +9,7 @@
         <module>guava</module>
         <module>resilience4j</module>
         <module>caffeine</module>
+        <module>ehcache</module>
     </modules>
 
     <parent>

@@ -2,6 +2,7 @@ package minssogi.study.ehcache.app;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table(uniqueConstraints = {@UniqueConstraint(name = "UNQ_name", columnNames = {"product_name"})})
 @NoArgsConstructor
+@ToString
 public class Product {
 
     @Id
