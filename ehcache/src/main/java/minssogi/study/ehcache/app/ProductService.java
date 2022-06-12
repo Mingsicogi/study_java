@@ -2,7 +2,6 @@ package minssogi.study.ehcache.app;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import minssogi.study.caffeine.app.Product;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 

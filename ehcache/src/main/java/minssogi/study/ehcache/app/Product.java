@@ -1,4 +1,4 @@
-package minssogi.study.caffeine.app;
+package minssogi.study.ehcache.app;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
