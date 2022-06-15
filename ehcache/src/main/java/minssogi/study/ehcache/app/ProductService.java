@@ -10,9 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class ProductService {
-
     private final ProductRepository productRepository;
-
     @SneakyThrows
     @Cacheable(value = "productCache", key = "#productName")
     public Product getProduct(String productName)

@@ -14,7 +14,6 @@ import javax.annotation.PostConstruct;
 @RequiredArgsConstructor
 @RequestMapping("/product")
 public class ProductController {
-
     private final ProductService productService;
     private final ProductRepository productRepository;
 
