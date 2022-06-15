@@ -34,7 +34,6 @@ public class ProductController {
     public ResponseEntity<Product> modifyProductName(@PathVariable("productName") String productName, @PathVariable("changePrice") Integer changePrice) {
         Product productByProductName = productRepository.findProductByProductName(productName);
         productByProductName.changePrice(changePrice);
-
         return ResponseEntity.ok(productByProductName);
     }
 }
