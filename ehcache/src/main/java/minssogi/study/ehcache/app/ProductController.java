@@ -1,12 +1,12 @@
 package minssogi.study.ehcache.app;
 
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 
@@ -27,5 +27,14 @@ public class ProductController {
     @GetMapping("/{productName}")
     public ResponseEntity<Product> findProduct(@PathVariable("productName") String productName) {
         return ResponseEntity.ok(productService.getProduct(productName));
+    }
+
+    @GetMapping("/{productName}/{changePrice}")
+    @Transactional
+    public ResponseEntity<Product> modifyProductName(@PathVariable("productName") String productName, @PathVariable("changePrice") Integer changePrice) {
+        Product productByProductName = productRepository.findProductByProductName(productName);
+        productByProductName.changePrice(changePrice);
+
+        return ResponseEntity.ok(productByProductName);
     }
 }

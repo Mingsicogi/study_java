@@ -3,6 +3,7 @@ package minssogi.study.ehcache.app;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 
@@ -30,5 +31,14 @@ public class Product {
 
     public static Product createProduct(String productName, Integer price) {
         return new Product(productName, price);
+    }
+
+    @Transactional
+    public void changePrice(Integer price) {
+        if (price > 0) {
+            this.price = price;
+        } else {
+            throw new IllegalArgumentException("price must be bigger than 0");
+        }
     }
 }
