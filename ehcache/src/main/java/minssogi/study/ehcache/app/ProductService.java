@@ -18,4 +18,8 @@ public class ProductService {
         Thread.sleep(200);
         return productRepository.findProductByProductName(productName);
     }
+
+    public Product getProductNoCache(String productName) {
+        return this.getProduct(productName);
+    }
 }
