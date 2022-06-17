@@ -1,7 +1,7 @@
 spring:
-  cache:
-    ehcache:
-      config: classpath:ehcache.xml
+#  cache:
+#    ehcache:
+#      config: classpath:_ehcache.xml
 
   datasource:
     driver-class-name: org.h2.Driver
