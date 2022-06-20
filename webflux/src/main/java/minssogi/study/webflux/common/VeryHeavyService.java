@@ -1,4 +1,4 @@
-package minssogi.study.webflux.flux;
+package minssogi.study.webflux.common;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
