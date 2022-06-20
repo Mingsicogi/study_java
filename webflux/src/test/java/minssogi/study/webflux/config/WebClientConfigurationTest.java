@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class WebClientConfigurationTest {
 
     private final WebClient webClient = WebClient.builder().baseUrl("http://localhost:8086/flux/test1")
-//        .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+        .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
         .clientConnector(new ReactorClientHttpConnector(HttpClient.create().responseTimeout(Duration.ofSeconds(1))))
         .build();
 
