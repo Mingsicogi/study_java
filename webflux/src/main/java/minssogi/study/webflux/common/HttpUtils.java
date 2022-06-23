@@ -6,7 +6,4 @@ import reactor.core.publisher.Mono;
 
 public class HttpUtils {
 
-    public String getClientIp() {
-        Mono.create(ServerHttpRequest::getRemoteAddress).
-    }
 }
