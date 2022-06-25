@@ -2,6 +2,7 @@ package minssogi.study.webflux.config;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
@@ -26,6 +27,7 @@ class WebClientConfigurationTest {
 
     @Test
     @SneakyThrows
+    @Disabled
     void webClient() {
         Mono<String> response = webClient.get().retrieve().bodyToMono(String.class);
 
