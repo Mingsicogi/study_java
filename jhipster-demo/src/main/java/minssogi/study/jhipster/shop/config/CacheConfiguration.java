@@ -49,6 +49,16 @@ public class CacheConfiguration {
             createCache(cm, minssogi.study.jhipster.shop.domain.User.class.getName());
             createCache(cm, minssogi.study.jhipster.shop.domain.Authority.class.getName());
             createCache(cm, minssogi.study.jhipster.shop.domain.User.class.getName() + ".authorities");
+            createCache(cm, minssogi.study.jhipster.shop.domain.Game.class.getName());
+            createCache(cm, minssogi.study.jhipster.shop.domain.Game.class.getName() + ".gameServerLists");
+            createCache(cm, minssogi.study.jhipster.shop.domain.GameServer.class.getName());
+            createCache(cm, minssogi.study.jhipster.shop.domain.Nid.class.getName());
+            createCache(cm, minssogi.study.jhipster.shop.domain.Gnid.class.getName());
+            createCache(cm, minssogi.study.jhipster.shop.domain.Gnid.class.getName() + ".spidLists");
+            createCache(cm, minssogi.study.jhipster.shop.domain.Spid.class.getName());
+            createCache(cm, minssogi.study.jhipster.shop.domain.Spid.class.getName() + ".spidLists");
+            createCache(cm, minssogi.study.jhipster.shop.domain.Pid.class.getName());
+            createCache(cm, minssogi.study.jhipster.shop.domain.Pid.class.getName() + ".spidLists");
             // jhipster-needle-caffeine-add-entry
         };
     }

@@ -3,7 +3,7 @@ entity Game {
 	gameId Long
 	gameNm String
     gameCd String
-    
+
 }
 
 entity GameServer(game_server) {
@@ -57,8 +57,8 @@ relationship OneToMany {
 }
 
 // Set pagination options
-paginate JobHistory, Employee with infinite-scroll
-paginate Job with pagination
+// paginate JobHistory, Employee with infinite-scroll
+// paginate Job with pagination
 
 // Use Data Transfer Objects (DTO)
 // dto * with mapstruct

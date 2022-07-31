@@ -1,6 +1,91 @@
-# shop
+# JHipster
+Java 기반의 개발(웹)을 빠르게 할 수 있도록 도와주는 플랫폼(Spring Framework 보다 상위 단계의 개발 플랫폼)
+-- 
+ 
+## Java 기반의 웹 개발
+ - front-end 
+    - framework : Angular, React, Vue
+    - development workflow
+        - 신규 자바 스크립트 라이브러리는 npm을 통해 설치
+        - 웹팩으로 build 및 optimization과 live reload
+        - Jest와 Protractor 로 test
+ - back-end
+    - framework : spring, spring security, spring mvc, spring webflux, spring data jpa
+    - build : maven or gradle(Jar or WAR)
+    - microservices architecture sepc : spring cloud gateway, netflix oss(Eureka, Hystrix...)
+    - etc : elastic search, mongoDB, Couchbase, Cassandra, Kafka, Cache(EhCache, Caffeine, Redis...), Supporting full
+     Docker or Docker Compose, Supporting cloud services(AWS, GCP, Cloud Foundry, Heroku, Azure...)
+     
+     
+## JHipster 에서 제공하는 화면
+- 메인 페이지
+![images](./images/screenshot_1.png)
+- 모니터링 화면
+![images](./images/screenshot_2.png)
+- 데이터 추가 폼
+![images](./images/screenshot_3.png)
+- 서버 로그 설정 관리 화면
+![images](./images/screenshot_4.png)
+    
 
-This application was generated using JHipster 7.8.1, you can find documentation and help at [https://www.jhipster.tech](https://www.jhipster.tech).
+## 많은 기업에서 사용중)
+![images](./images/screenshot_6.png)
+ 
+ 
+## 사용하는 방법)
+ 0. 준비: JAVA 설치, Git 설치, Node.js 설치
+ 1. JHister 설치 
+    - npm install -g generator-jhipster
+ 2. 폴더 생성 및 이동
+    - mkdir sample && cd smaple
+ 3. jhipster 명령어 실행 및 설정
+ 4. JDL(JHipster Domain Language) 생성
+    - https://start.jhipster.tech/jdl-studio
+ 5. jdl 실행
+    - jhipster jdl <jdl file>
+    
+## 추가 기능
+ - 도메인 추가
+ - 컨트롤러 추가(jhipster spring-controller <controller name>)
+ - 서비스 추가(jhipster spring-service <service name>)
+  - jhipster 에서는 엔티티를 만들때 기본적으로 crud 관련 서비스 클래스를 만들지 않는데 이유는 Repository로 대신할 수 있기 때문
+  - 서비스 로직은 여러 Repository가 사용되기 때문에 자동으로 만들 수 없는 영역
+
+
+## JDL
+ - JDL-Studio 나 JHipster IDE 를 통해서 도메인간의 관계를 정의하는 언어. 엔티티 생성 뿐만 아니라 관련 기본 클래스도 생성(컨트롤러, 레퍼지토리)
+
+ - field types (https://www.jhipster.tech/jdl/entities-fields#field-types-and-validations)
+  ```
+  Entity <entity name>(<table name>) {
+    <field name> <field type>
+  
+  } 
+  
+  ```
+ 
+![images](./images/screenshot_7.png)
+
+ - relationships
+    - OneToOne
+    - OneToMany
+    - ManyToOne
+    - ManyToMany
+ ```
+relationship (OneToMany | ManyToOne | OneToOne | ManyToMany) {
+  <from entity>[{<relationship name>[(<display field>)]}] to <to entity>[{<relationship name>[(<display field>)]}]+
+}
+ 
+ ```
+ 
+ - Options
+ ![images](./images/screenshot_9.png)
+ - Deployments
+![images](./images/screenshot_8.png)
+ 
+
+
+참고) [https://www.jhipster.tech](https://www.jhipster.tech).
 
 ## Project Structure
 
