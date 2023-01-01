@@ -1,0 +1,37 @@
+{
+  "applications": "*",
+  "changelogDate": "20220731160114",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "spid",
+  "fields": [
+    {
+      "fieldName": "spid",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Spid",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "gnid",
+      "otherEntityRelationshipName": "spid",
+      "relationshipName": "spidList",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "pid",
+      "otherEntityRelationshipName": "spidList",
+      "relationshipName": "pid",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

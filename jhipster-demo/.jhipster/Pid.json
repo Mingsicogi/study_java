@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20220731160115",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "pid",
+  "fields": [
+    {
+      "fieldName": "pid",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ci",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "di",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Pid",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "spid",
+      "otherEntityRelationshipName": "pid",
+      "relationshipName": "spidList",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,27 @@
+spring:
+#  cache:
+#    ehcache:
+#      config: classpath:_ehcache.xml
+
+  datasource:
+    driver-class-name: org.h2.Driver
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
+
+server:
+  port: 8085

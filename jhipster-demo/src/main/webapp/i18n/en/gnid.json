@@ -1,0 +1,28 @@
+{
+  "shopApp": {
+    "gnid": {
+      "home": {
+        "title": "Gnids",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Gnid",
+        "createOrEditLabel": "Create or edit a Gnid",
+        "notFound": "No Gnids found"
+      },
+      "created": "A new Gnid is created with identifier {{ param }}",
+      "updated": "A Gnid is updated with identifier {{ param }}",
+      "deleted": "A Gnid is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Gnid {{ id }}?"
+      },
+      "detail": {
+        "title": "Gnid"
+      },
+      "id": "ID",
+      "gnid": "Gnid",
+      "gameCd": "Game Cd",
+      "game": "Game",
+      "spidList": "Spid List",
+      "spid": "Spid"
+    }
+  }
+}

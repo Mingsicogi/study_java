@@ -1,0 +1,44 @@
+{
+  "applications": "*",
+  "changelogDate": "20220731160113",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "gnid",
+  "fields": [
+    {
+      "fieldName": "gnid",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gameCd",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Gnid",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "game",
+      "otherEntityRelationshipName": "gnid",
+      "ownerSide": true,
+      "relationshipName": "game",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "nid",
+      "otherEntityRelationshipName": "gnid",
+      "relationshipName": "spidList",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "spid",
+      "otherEntityRelationshipName": "spidList",
+      "relationshipName": "spid",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

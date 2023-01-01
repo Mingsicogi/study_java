@@ -1,0 +1,8 @@
+spring:
+  influx:
+    url: http://localhost:8086
+    user: admin
+    password: admin!123
+    token: xT6HzsJT5xGBswFZnhE5nixDWBZVsljmMb6wRy3EqB7b8tsgbMDot48tglN_OXpExFPSXNiVcxaVl_MDqHKCnw==
+    org: study
+    bucket: game_statistics

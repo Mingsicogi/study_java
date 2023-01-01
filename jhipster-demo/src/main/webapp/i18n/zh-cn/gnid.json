@@ -1,0 +1,28 @@
+{
+  "shopApp": {
+    "gnid": {
+      "home": {
+        "title": "Gnids",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Gnid",
+        "createOrEditLabel": "创建或编辑 Gnid",
+        "notFound": "No Gnids found"
+      },
+      "created": "Gnid {{ param }} 创建成功",
+      "updated": "Gnid {{ param }} 更新成功",
+      "deleted": "Gnid {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Gnid {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Gnid"
+      },
+      "id": "ID",
+      "gnid": "Gnid",
+      "gameCd": "Game Cd",
+      "game": "Game",
+      "spidList": "Spid List",
+      "spid": "Spid"
+    }
+  }
+}

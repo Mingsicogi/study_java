@@ -1,0 +1,26 @@
+{
+  "shopApp": {
+    "gameServer": {
+      "home": {
+        "title": "GameServers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Game Server を追加",
+        "createOrEditLabel": "Game Serverを追加または編集",
+        "notFound": "No Game Servers found"
+      },
+      "created": "A new Game Server is created with identifier {{ param }}",
+      "updated": "A Game Server is updated with identifier {{ param }}",
+      "deleted": "A Game Server is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Game Server {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Game Server"
+      },
+      "id": "ID",
+      "gameServerId": "Game Server Id",
+      "region": "Region",
+      "game": "Game"
+    }
+  }
+}

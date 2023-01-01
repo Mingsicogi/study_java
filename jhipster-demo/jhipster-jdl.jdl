@@ -1,0 +1,70 @@
+
+entity Game {
+	gameId Long
+	gameNm String
+    gameCd String
+
+}
+
+entity GameServer(game_server) {
+	gameServerId String
+    region String
+}
+
+entity Nid {
+	nid Long
+}
+
+entity Gnid {
+	gnid Long
+    gameCd String
+}
+
+entity Spid {
+	spid Long
+    email String
+}
+
+entity Pid {
+	pid Long
+    phone String
+    ci String
+    di String
+}
+
+enum ItemType {
+    WEAPON, DEFENSE, POTION
+}
+
+relationship OneToMany {
+	Game{gameServerList} to GameServer
+}
+
+relationship OneToOne {
+	Gnid{game} to Game
+}
+
+relationship OneToMany {
+	Pid{spidList} to Spid
+}
+
+relationship OneToMany {
+	Spid{spidList} to Gnid
+}
+
+relationship OneToMany {
+	Gnid{spidList} to Nid
+}
+
+// Set pagination options
+// paginate JobHistory, Employee with infinite-scroll
+// paginate Job with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except GameServer
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

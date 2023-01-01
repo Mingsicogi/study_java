@@ -1,0 +1,80 @@
+server:
+  port: 8083
+
+spring:
+  thymeleaf:
+    enabled: true
+    prefix: classpath:/templates/
+    suffix: .html
+
+
+# manageMent Setting
+# acutator ?? ?? ??
+# https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html
+management:
+  endpoint:
+    heapdump:
+      enabled: false
+    health:
+      show-details: always
+  health:
+    db:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: health, info, env, metrics, mappings, threaddump, caches, beans, scheduledtasks, httptrace, configprops, conditions, loggers
+      base-path: /adminManage
+
+# resilience4j actuator ????? ?? ?? ??
+management.health.diskspace.enabled: false
+management.health.circuitbreakers.enabled: true
+management.health.ratelimiters.enabled: true
+
+# Aspect Order : Retry ( CircuitBreaker ( RateLimiter ( TimeLimiter ( Bulkhead ( Function ) ) ) ) )
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        register-health-indicator: true
+        slidingWindowSize: 10
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowType: COUNT_BASED
+        minimumNumberOfCalls: 20
+        waitDurationInOpenState: 50s
+        failureRateThreshold: 50
+        eventConsumerBufferSize: 10
+        record-exceptions:
+          - java.lang.RuntimeException
+          - java.lang.NumberFormatException
+    instances:
+      recruitPage:
+        base-config: default
+        sliding-window-size: 2
+        wait-duration-in-open-state: 3s
+        minimum-number-of-calls: 10
+        failure-rate-threshold: 1
+        slow-call-rate-threshold: 1
+
+  bulkhead:
+    instances:
+      launcherGetGameList:
+        maxConcurrentCalls: 5
+        max-wait-duration: 500ms
+
+  ratelimiter:
+    metrics:
+      enabled: true
+    configs:
+      default:
+        register-health-indicator: true
+    instances:
+      stsLoginReq:
+        base-config: default
+        limit-for-period: 10
+        limit-refresh-period: 1s
+
+
+logging:
+  level:
+    io.github.resilience4j.circuitbreaker: debug

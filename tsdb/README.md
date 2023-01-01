@@ -1,0 +1,7 @@
+from(bucket: "game_statistics")
+|> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+|> filter(fn: (r) => r["_measurement"] == "ccu")
+|> filter(fn: (r) => r["_field"] == "gnid")
+|> group(columns: ["gameCd"])
+|> aggregateWindow(every: v.windowPeriod, fn: count, createEmpty: false)
+|> yield(name: "platform-ccu")

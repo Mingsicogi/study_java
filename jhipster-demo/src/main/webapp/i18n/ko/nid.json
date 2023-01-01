@@ -1,0 +1,25 @@
+{
+  "shopApp": {
+    "nid": {
+      "home": {
+        "title": "Nids",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Nid",
+        "createOrEditLabel": "Create or edit a Nid",
+        "notFound": "No Nids found"
+      },
+      "created": "A new Nid is created with identifier {{ param }}",
+      "updated": "A Nid is updated with identifier {{ param }}",
+      "deleted": "A Nid is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Nid {{ id }}?"
+      },
+      "detail": {
+        "title": "Nid"
+      },
+      "id": "ID",
+      "nid": "Nid",
+      "gnid": "Gnid"
+    }
+  }
+}

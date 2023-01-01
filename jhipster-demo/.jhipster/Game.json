@@ -1,0 +1,35 @@
+{
+  "applications": "*",
+  "changelogDate": "20220731160110",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "game",
+  "fields": [
+    {
+      "fieldName": "gameId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gameNm",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gameCd",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Game",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "gameServer",
+      "otherEntityRelationshipName": "game",
+      "relationshipName": "gameServerList",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

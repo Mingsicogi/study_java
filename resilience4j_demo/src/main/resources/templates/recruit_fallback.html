@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>라인게임즈 채용</title>
+    <meta name="description" content="LINE Games와 함께할 멤버를 기다리고 있습니다! 지금 바로 지원하세요.">
+    <meta property="og:title" content="LINE Games Recruit">
+    <meta property="og:type" content="https://recruit.line.game">
+    <meta property="og:image" content="https://static.line.games/recruit/image/recruit_og.jpg">
+    <meta property="og:site_name" content="Only Fun">
+    <meta property="og:url" content="https://recruit.line.game">
+    <meta property="og:description" content="LINE Games와 함께할 멤버를 기다리고 있습니다! 지금 바로 지원하세요.">
+    <meta name="naver-site-verification" content="6ca43a0c00617a04143f5d7ef6dd2c1d5f654849">
+
+    <link href="//static.line.games/common/lineGames/favicon.ico" rel="icon" type="image/x-icon">
+    <link href="//static.line.games/common/lineGames/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <script src="/resources/js/jquery-3.3.1.min.js"></script>
+    <script src="/resources/js/bootstrap.min.js"></script>
+
+    <script src="/resources/js/jquery.i18n.properties.js"></script>
+    <script src="/resources/js/plugins/bootstrap-datepicker.js"></script>
+    <script src="/resources/js/plugins/toastr.min.js"></script>
+    <script src="/resources/js/common.js"></script>
+
+    <script type="text/javascript" src="https://static.line.games/recruit/v2/pc/js/common.js?v=2022111500w"></script>
+
+    <link href="https://static.line.games/recruit/v2/pc/css/index.css?v=2022111500w" rel="stylesheet">
+    <script type="text/javascript" src="https://static.line.games/recruit/v2/pc/js/index.js?v=2022111500w"></script>
+
+</head>
+<style>
+    .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+<body>
+<div class="linegames-wrap main">
+    <header class="header">
+        <div class="header-wrap">
+            <h1>
+                <a href="/">
+                    <span>Line Games</span>
+                    <i class="font-icon-logo-LG"></i>
+                </a>
+            </h1>
+            <ul class="category-wrap">
+                <li class="category">
+                    <a href="/life">라인게임즈 소개</a>
+                    <ul>
+                        <li><a href="/life">라인게임즈 생활</a></li>
+                        <li><a href="/interview">라인게임즈 인터뷰</a></li>
+                    </ul>
+                </li>
+                <li class="category">
+                    <a href="/process">채용정보</a>
+                    <ul>
+                        <li><a href="/process">채용절차</a></li>
+                        <li><a href="/notice">채용공고</a></li>
+                        <li><a href="/faq">채용 FAQ</a></li>
+                    </ul>
+                </li>
+                <li class="category">
+                    <a onclick="goPostUrl('/apply/myApplication')">내 지원서</a>
+                    <ul>
+                        <li><a onclick="goPostUrl('/apply/pool')">인재풀 등록</a></li>
+                        <li><a onclick="goPostUrl('/apply/myApplication')">지원서 조회/수정</a></li>
+                        <li><a onclick="goPostUrl('/apply/result')">지원결과 조회</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!--로그아웃 버튼 추가-->
+            <!-- <div class="language-wrap">
+                <div class="language">
+                    <button>
+                        <span>한국어</span>
+                        <svg viewbox="0 0 10 5" fill="transparent">
+                            <path d="M0,0 l5,5 m0,0 l5,-5" fill="transparent" stroke-width=".5" stroke="#000"/>
+                        </svg>
+                    </button>
+                    <ul>
+                        <li><a  >영어</a></li>
+                        <li><a  >일본어</a></li>
+                    </ul>
+                </div>
+            </div> -->
+        </div>
+    </header>
+
+    <div class="loader"></div>
+
+
+    <footer class="footer">
+        <div class="wrap">
+            <h2><span>Line Games</span><i class="font-icon-logo-LG"></i></h2>
+            <ul class="terms">
+                <li><a style="font-weight: bold" href="https://cs.line.games/policy/web/privacy?companyCd=LINE_GAMES&amp;svcCd=LG_HOMEPAGE&amp;langCd=ko&amp;typeCd=HOMEPAGE" target="_blank">개인정보
+                    처리방침</a></li>
+                <li>
+                    <a href="https://cs.line.games/policy/web/terms?companyCd=LINE_GAMES&amp;svcCd=LG_HOMEPAGE&amp;langCd=ko&amp;typeCd=HOMEPAGE" target="_blank">이용약관</a>
+                </li>
+            </ul>
+
+            <div class="select">
+                <p style="font-weight: normal">FAMILY SITE <i class="font-icon-arrow-down"></i></p>
+                <ul>
+                    <li><a href="https://www.line.games" target="_blank">라인게임즈 홈페이지</a></li>
+                    <li><a href="https://floor.line.games/ko_KR/main" target="_blank">라인게임즈 FLOOR</a></li>
+                    <li><a href="https://www.facebook.com/LineGames.kr" target="_blank">라인게임즈 페이스북</a></li>
+                    <li><a href="https://www.youtube.com/user/NextFloorGames/featured" target="_blank">라인게임즈 유튜브</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="copy">
+            © LINE Games Corporation. All Rights Reserved.
+        </p>
+    </footer>
+
+</div>
+<!-- csrf 처리 -->
+<script>
+    $(document).ready(function () {
+        try {
+            var csrfParameter = $("meta[name='_csrf_parameter']").attr("content");
+            var csrfHeader = $("meta[name='_csrf_header']").attr("content");
+            var csrfToken = $("meta[name='_csrf']").attr("content");
+            //if(false){
+            $.ajaxSetup({
+                beforeSend: function (xhr, settings) {
+                    if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)) {
+                        xhr.setRequestHeader(csrfHeader, csrfToken)
+                    }
+                }
+            });
+
+            $("form").each(function () {
+                var input = $("<input/>").attr({name: csrfParameter, type: "hidden", value: csrfToken});
+                $(this).append(input);
+            });
+            //}
+        } catch (e) {
+            console.log(e);
+        }
+    });
+</script>
+<!-- csrf 처리 -->
+
+
+
+</body></html>

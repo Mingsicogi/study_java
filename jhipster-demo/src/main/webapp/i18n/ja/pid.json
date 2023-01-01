@@ -1,0 +1,28 @@
+{
+  "shopApp": {
+    "pid": {
+      "home": {
+        "title": "Pids",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Pid を追加",
+        "createOrEditLabel": "Pidを追加または編集",
+        "notFound": "No Pids found"
+      },
+      "created": "A new Pid is created with identifier {{ param }}",
+      "updated": "A Pid is updated with identifier {{ param }}",
+      "deleted": "A Pid is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Pid {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Pid"
+      },
+      "id": "ID",
+      "pid": "Pid",
+      "phone": "Phone",
+      "ci": "Ci",
+      "di": "Di",
+      "spidList": "Spid List"
+    }
+  }
+}

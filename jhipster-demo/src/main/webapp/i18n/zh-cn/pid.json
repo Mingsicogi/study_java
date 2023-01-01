@@ -1,0 +1,28 @@
+{
+  "shopApp": {
+    "pid": {
+      "home": {
+        "title": "Pids",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Pid",
+        "createOrEditLabel": "创建或编辑 Pid",
+        "notFound": "No Pids found"
+      },
+      "created": "Pid {{ param }} 创建成功",
+      "updated": "Pid {{ param }} 更新成功",
+      "deleted": "Pid {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Pid {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Pid"
+      },
+      "id": "ID",
+      "pid": "Pid",
+      "phone": "Phone",
+      "ci": "Ci",
+      "di": "Di",
+      "spidList": "Spid List"
+    }
+  }
+}

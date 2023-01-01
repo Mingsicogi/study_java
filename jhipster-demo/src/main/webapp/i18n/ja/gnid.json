@@ -1,0 +1,28 @@
+{
+  "shopApp": {
+    "gnid": {
+      "home": {
+        "title": "Gnids",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Gnid を追加",
+        "createOrEditLabel": "Gnidを追加または編集",
+        "notFound": "No Gnids found"
+      },
+      "created": "A new Gnid is created with identifier {{ param }}",
+      "updated": "A Gnid is updated with identifier {{ param }}",
+      "deleted": "A Gnid is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Gnid {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Gnid"
+      },
+      "id": "ID",
+      "gnid": "Gnid",
+      "gameCd": "Game Cd",
+      "game": "Game",
+      "spidList": "Spid List",
+      "spid": "Spid"
+    }
+  }
+}

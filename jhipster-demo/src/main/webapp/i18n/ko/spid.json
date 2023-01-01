@@ -1,0 +1,27 @@
+{
+  "shopApp": {
+    "spid": {
+      "home": {
+        "title": "Spids",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Spid",
+        "createOrEditLabel": "Create or edit a Spid",
+        "notFound": "No Spids found"
+      },
+      "created": "A new Spid is created with identifier {{ param }}",
+      "updated": "A Spid is updated with identifier {{ param }}",
+      "deleted": "A Spid is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Spid {{ id }}?"
+      },
+      "detail": {
+        "title": "Spid"
+      },
+      "id": "ID",
+      "spid": "Spid",
+      "email": "Email",
+      "spidList": "Spid List",
+      "pid": "Pid"
+    }
+  }
+}

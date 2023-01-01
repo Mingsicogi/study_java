@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20220731160112",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "nid",
+  "fields": [
+    {
+      "fieldName": "nid",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Nid",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "gnid",
+      "otherEntityRelationshipName": "spidList",
+      "relationshipName": "gnid",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

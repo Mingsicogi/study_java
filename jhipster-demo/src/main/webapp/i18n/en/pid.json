@@ -1,0 +1,28 @@
+{
+  "shopApp": {
+    "pid": {
+      "home": {
+        "title": "Pids",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Pid",
+        "createOrEditLabel": "Create or edit a Pid",
+        "notFound": "No Pids found"
+      },
+      "created": "A new Pid is created with identifier {{ param }}",
+      "updated": "A Pid is updated with identifier {{ param }}",
+      "deleted": "A Pid is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Pid {{ id }}?"
+      },
+      "detail": {
+        "title": "Pid"
+      },
+      "id": "ID",
+      "pid": "Pid",
+      "phone": "Phone",
+      "ci": "Ci",
+      "di": "Di",
+      "spidList": "Spid List"
+    }
+  }
+}

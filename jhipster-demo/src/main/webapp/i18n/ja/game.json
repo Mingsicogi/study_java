@@ -1,0 +1,27 @@
+{
+  "shopApp": {
+    "game": {
+      "home": {
+        "title": "Games",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Game を追加",
+        "createOrEditLabel": "Gameを追加または編集",
+        "notFound": "No Games found"
+      },
+      "created": "A new Game is created with identifier {{ param }}",
+      "updated": "A Game is updated with identifier {{ param }}",
+      "deleted": "A Game is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Game {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Game"
+      },
+      "id": "ID",
+      "gameId": "Game Id",
+      "gameNm": "Game Nm",
+      "gameCd": "Game Cd",
+      "gameServerList": "Game Server List"
+    }
+  }
+}

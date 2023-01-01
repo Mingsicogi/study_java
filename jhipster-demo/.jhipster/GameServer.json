@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20220731160111",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "game_server",
+  "fields": [
+    {
+      "fieldName": "gameServerId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "region",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "GameServer",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "game",
+      "otherEntityRelationshipName": "gameServerList",
+      "relationshipName": "game",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

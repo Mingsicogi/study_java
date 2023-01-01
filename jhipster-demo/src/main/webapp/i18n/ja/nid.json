@@ -1,0 +1,25 @@
+{
+  "shopApp": {
+    "nid": {
+      "home": {
+        "title": "Nids",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Nid を追加",
+        "createOrEditLabel": "Nidを追加または編集",
+        "notFound": "No Nids found"
+      },
+      "created": "A new Nid is created with identifier {{ param }}",
+      "updated": "A Nid is updated with identifier {{ param }}",
+      "deleted": "A Nid is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Nid {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Nid"
+      },
+      "id": "ID",
+      "nid": "Nid",
+      "gnid": "Gnid"
+    }
+  }
+}

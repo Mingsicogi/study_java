@@ -1,0 +1,141 @@
+server:
+  port: 8083
+  error:
+    whitelabel:
+      enabled: false
+    path: /error
+  tomcat:
+    threads:
+      min-spare: 100
+      max: 100
+
+spring:
+  application:
+    name: resilience4jTest
+
+# manageMent Setting
+# acutator 설정 참고 링크
+# https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html
+management:
+  endpoint:
+    heapdump:
+      enabled: false
+    health:
+      show-details: always
+  health:
+    db:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: health, info, env, metrics, mappings, threaddump, caches, beans, scheduledtasks, httptrace, configprops, conditions, loggers
+      base-path: /adminManage
+
+# resilience4j actuator 집계정보를 보기 위한 설정
+management.health.diskspace.enabled: false
+management.health.circuitbreakers.enabled: true
+management.health.ratelimiters.enabled: true
+management.metrics.tags.application: ${spring.application.name}
+management.metrics.distribution.percentiles-histogram.http.server.requests: true
+management.metrics.distribution.percentiles-histogram.resilience4j.circuitbreaker.calls: true
+
+# Aspect Order : Retry ( CircuitBreaker ( RateLimiter ( TimeLimiter ( Bulkhead ( Function ) ) ) ) )
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowType: TIME_BASED
+        minimumNumberOfCalls: 20
+        waitDurationInOpenState: 50s
+        failureRateThreshold: 50
+        eventConsumerBufferSize: 10
+        record-exceptions:
+          - java.lang.RuntimeException
+          - java.lang.NumberFormatException
+    instances:
+      backendA:
+        base-config: default
+      backendB:
+        base-config: default
+      recruitPage:
+        base-config: default
+        slidingWindowSize: 2
+        waitDurationInOpenState: 3s
+        permittedNumberOfCallsInHalfOpenState: 2
+
+  bulkhead:
+    instances:
+      backendA:
+        maxConcurrentCalls: 10
+      backendB:
+        maxConcurrentCalls: 20
+      launcherGetGameList:
+        maxConcurrentCalls: 5
+
+  ratelimiter:
+    metrics:
+      enabled: true
+    configs:
+      default:
+        limit-for-period: 20
+        limit-refresh-period: 1ms
+    instances:
+      backendA:
+        base-config: default
+      backendB:
+        base-config: default
+      stsLoginReq:
+        base-config: default
+        limit-for-period: 10
+        limit-refresh-period: 10ns
+
+  retry:
+    instances:
+      backendA:
+        maxAttempts: 3
+        waitDuration: 10s
+        enableExponentialBackoff: true
+        exponentialBackoffMultiplier: 2
+        retryExceptions:
+          - org.springframework.web.client.HttpServerErrorException
+          - java.io.IOException
+        ignoreExceptions:
+          - java.lang.IllegalArgumentException
+      backendB:
+        maxAttempts: 3
+        waitDuration: 10s
+        retryExceptions:
+          - org.springframework.web.client.HttpServerErrorException
+          - java.io.IOException
+        ignoreExceptions:
+          - java.lang.IllegalArgumentException
+
+  thread-pool-bulkhead:
+    instances:
+      backendA:
+        maxThreadPoolSize: 1
+        coreThreadPoolSize: 1
+        queueCapacity: 1
+      backendB:
+        maxThreadPoolSize: 1
+        coreThreadPoolSize: 1
+        queueCapacity: 1
+      backendC:
+        maxThreadPoolSize: 1
+        coreThreadPoolSize: 1
+        queueCapacity: 1
+
+  timelimiter:
+    instances:
+      backendA:
+        timeoutDuration: 2s
+        cancelRunningFuture: true
+      backendB:
+        timeoutDuration: 1s
+        cancelRunningFuture: false
+logging:
+  level:
+    io.github.resilience4j.circuitbreaker: debug

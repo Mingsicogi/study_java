@@ -1,0 +1,26 @@
+{
+  "shopApp": {
+    "gameServer": {
+      "home": {
+        "title": "Game Servers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Game Server",
+        "createOrEditLabel": "Create or edit a Game Server",
+        "notFound": "No Game Servers found"
+      },
+      "created": "A new Game Server is created with identifier {{ param }}",
+      "updated": "A Game Server is updated with identifier {{ param }}",
+      "deleted": "A Game Server is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Game Server {{ id }}?"
+      },
+      "detail": {
+        "title": "Game Server"
+      },
+      "id": "ID",
+      "gameServerId": "Game Server Id",
+      "region": "Region",
+      "game": "Game"
+    }
+  }
+}
