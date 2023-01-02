@@ -7,18 +7,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="design_pattern" />
+        <module name="mail" />
+        <module name="webflux" />
+        <module name="tsdb" />
+        <module name="resilience4j" />
         <module name="ehcache" />
         <module name="async" />
         <module name="caffeine" />
         <module name="java" />
-        <module name="design_pattern" />
-        <module name="mail" />
         <module name="resilience4j_demo" />
-        <module name="webflux" />
-        <module name="tsdb" />
+        <module name="http2" />
         <module name="guava" />
         <module name="aws" />
-        <module name="resilience4j" />
       </profile>
     </annotationProcessing>
   </component>
@@ -30,6 +31,7 @@
       <module name="design_pattern" options="-parameters" />
       <module name="ehcache" options="-parameters" />
       <module name="guava" options="-parameters" />
+      <module name="http2" options="-parameters" />
       <module name="java" options="-parameters" />
       <module name="mail" options="-parameters" />
       <module name="resilience4j" options="-parameters" />

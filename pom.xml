@@ -16,6 +16,7 @@
         <module>tsdb</module>
         <module>resilience4j_demo</module>
         <module>mail</module>
+        <module>http2</module>
     </modules>
 
     <parent>
