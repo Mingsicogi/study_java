@@ -17,6 +17,7 @@
         <module>resilience4j_demo</module>
         <module>mail</module>
         <module>http2</module>
+        <module>server_push</module>
     </modules>
 
     <parent>

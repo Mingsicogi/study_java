@@ -5,17 +5,17 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/java/pom.xml" />
-        <option value="$PROJECT_DIR$/guava/pom.xml" />
-        <option value="$PROJECT_DIR$/resilience4j/pom.xml" />
-        <option value="$PROJECT_DIR$/caffeine/pom.xml" />
-        <option value="$PROJECT_DIR$/ehcache/pom.xml" />
-        <option value="$PROJECT_DIR$/webflux/pom.xml" />
-        <option value="$PROJECT_DIR$/design_pattern/pom.xml" />
-        <option value="$PROJECT_DIR$/tsdb/pom.xml" />
-        <option value="$PROJECT_DIR$/aws/pom.xml" />
         <option value="$PROJECT_DIR$/http2/pom.xml" />
+        <option value="$PROJECT_DIR$/aws/pom.xml" />
+        <option value="$PROJECT_DIR$/server_push/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/async/pom.xml" />
+        <option value="$PROJECT_DIR$/mail/pom.xml" />
+        <option value="$PROJECT_DIR$/resilience4j_demo/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
