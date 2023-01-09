@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "firebase": "^9.15.0"
+  },
+  "type": "module",
+  "name": "minssogi",
+  "version": "1.0.0",
+  "description": "minssogi-pack",
+  "main": "firebase-messaging-sw.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
