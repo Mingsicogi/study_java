@@ -1,23 +1,85 @@
+<!-- https://github.com/firebase/quickstart-js/blob/master/messaging/firebase-messaging-sw.js -->
+<!-- https://firebase.google.com/docs/web/learn-more -->
+<!-- https://firebase.google.com/docs/cloud-messaging/js/client#web-version-9 -->
+<!-- -->
+<!-- -->
+<!-- -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>FCM Example</title>
+    <!-- script type="module" src="/js/firebase-messaging-sw.js"></script -->
+    <!-- script type="module" src="/js/messeging_receive_message.js"></script -->
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-messaging-compat.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyDFUle9nI5pn84thI6fQuihCLtAf4-8Ys4",
+            authDomain: "minssogi-study.firebaseapp.com",
+            projectId: "minssogi-study",
+            storageBucket: "minssogi-study.appspot.com",
+            messagingSenderId: "458960821186",
+            appId: "1:458960821186:web:0a8c6600b25c328a86945b",
+            measurementId: "G-2G1GKJ15KZ"
+        };
+        firebase.initializeApp(config);
+    </script>
 </head>
 <body>
-    <h1>FCM Web Push</h1>
-</body>
+<h1>FCM Web Push</h1>
 <script>
+    const messaging = firebase.messaging();
+
+    // IDs of divs that display registration token UI or request permission UI.
+    // const tokenDivId = 'token_div';
+    // const permissionDivId = 'permission_div';
 
     // Handle incoming messages. Called when:
     // - a message is received while the app has focus
     // - the user clicks on an app notification created by a service worker
     //   `messaging.onBackgroundMessage` handler.
-    import { getMessaging, onMessage } from "firebase/messaging";
 
-    const messaging = getMessaging();
-    onMessage(messaging, (payload) => {
+    const a = navigator.serviceWorker.getRegistration("http://localhost:8080/firebase-cloud-messaging-push-scope")
+    let thisRegistration
+    a.then((registration) => {
+        thisRegistration = registration
+    })
+
+    messaging.onMessage((payload) => {
         console.log('Message received. ', payload);
-        // ...
+        // // Update the UI to include the received message.
+        // // console.log(payload);
+        // var title = payload.data.title;
+        // var options = {
+        //     body: payload.data.body
+        // };
+        //
+        console.log(thisRegistration)
+        thisRegistration.active.postMessage(payload)
+    });
+
+    messaging.getToken({vapidKey: 'BP8XWh3uBqAoApqCH4vOWpH0FOv9fa3oSeRt3pMXdiNySM1bbvweG-ZeBInVT3OhysNMH--aiucHzjkWRFxoXxA'}).then((currentToken) => {
+        if (currentToken) {
+            console.log(currentToken);
+            $.ajax({
+                url: '/serverPush/fcm/saveToken?token=' + currentToken,
+                type: 'GET',
+                async: false,
+                error: function (request, status, error) {
+                    console.log(request, status, error)
+                },
+                success: function (data) {
+                    console.log(data)
+                }
+            });
+        } else {
+            console.log('No registration token available. Request permission to generate one.');
+        }
+    }).catch((err) => {
+        console.log('An error occurred while retrieving token. ', err);
     });
 </script>
+</body>
 </html>

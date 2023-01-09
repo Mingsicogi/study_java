@@ -11,27 +11,42 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Slf4j
 @Controller
 @RequiredArgsConstructor
 public class WebPush {
 
     private final FirebaseMessaging firebaseMessaging;
+    private final Set<String> FCM_WEB_TOKEN_STORAGE = new HashSet<>();
 
     @ResponseBody
     @GetMapping("/serverPush/fcm/send")
     public ResponseEntity<String> fcmWebPush(@RequestParam("msg") String msg) {
-        Message message = Message.builder()
-                .setTopic("minssogi-server-push-study")
-                .putData("body", msg)
-                .build();
+        for (String webToken : FCM_WEB_TOKEN_STORAGE) {
+            Message message = Message.builder()
+                    .setToken(webToken)
+                    .putData("body", msg)
+                    .putData("title", "minssogi-web-push-fcm")
+                    .build();
 
-        try {
-            String logTrackingId = firebaseMessaging.send(message);
-            log.debug("### logTrackingId : {} ###", logTrackingId);
-        } catch (FirebaseMessagingException ignore) {}
+            try {
+                String logTrackingId = firebaseMessaging.send(message);
+                log.info("### logTrackingId : {} ###", logTrackingId);
+            } catch (FirebaseMessagingException ignore) {ignore.printStackTrace();}
+        }
 
         return ResponseEntity.ok(msg + " send success!");
+    }
+
+    @GetMapping("/serverPush/fcm/saveToken")
+    public ResponseEntity<String> fcmTokenSave(@RequestParam("token") String token) {
+        FCM_WEB_TOKEN_STORAGE.add(token);
+        return ResponseEntity.ok(token + " save success!");
     }
 
     @GetMapping("/serverPush/fcm")
