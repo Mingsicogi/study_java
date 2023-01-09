@@ -41,22 +41,30 @@
     // - the user clicks on an app notification created by a service worker
     //   `messaging.onBackgroundMessage` handler.
 
-    const a = navigator.serviceWorker.getRegistration("http://localhost:8080/firebase-cloud-messaging-push-scope")
+    const serviceWorker = navigator.serviceWorker.getRegistration("http://localhost:8080/firebase-cloud-messaging-push-scope")
     let thisRegistration
-    a.then((registration) => {
+    serviceWorker.then((registration) => {
         thisRegistration = registration
     })
 
     messaging.onMessage((payload) => {
         console.log('Message received. ', payload);
-        // // Update the UI to include the received message.
-        // // console.log(payload);
-        // var title = payload.data.title;
-        // var options = {
-        //     body: payload.data.body
-        // };
-        //
-        console.log(thisRegistration)
+        // Update the UI to include the received message.
+        // console.log(payload);
+        var title = payload.data.title;
+        var options = {
+            body: payload.data.body
+        };
+
+        Notification.requestPermission().then((permission) => {
+            if (permission ==='granted') {
+                console.log('permission granted');
+            } else {
+                console.log('permission not granted. (' + permission + ')');
+            }
+        })
+
+        var notification = new Notification(title, options);
         thisRegistration.active.postMessage(payload)
     });
 
@@ -72,6 +80,7 @@
                 },
                 success: function (data) {
                     console.log(data)
+                    return currentToken
                 }
             });
         } else {
