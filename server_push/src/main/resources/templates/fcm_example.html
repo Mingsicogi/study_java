@@ -32,21 +32,6 @@
 <script>
     const messaging = firebase.messaging();
 
-    // IDs of divs that display registration token UI or request permission UI.
-    // const tokenDivId = 'token_div';
-    // const permissionDivId = 'permission_div';
-
-    // Handle incoming messages. Called when:
-    // - a message is received while the app has focus
-    // - the user clicks on an app notification created by a service worker
-    //   `messaging.onBackgroundMessage` handler.
-
-    const serviceWorker = navigator.serviceWorker.getRegistration("http://localhost:8080/firebase-cloud-messaging-push-scope")
-    let thisRegistration
-    serviceWorker.then((registration) => {
-        thisRegistration = registration
-    })
-
     messaging.onMessage((payload) => {
         console.log('Message received. ', payload);
         // Update the UI to include the received message.
@@ -65,7 +50,6 @@
         })
 
         var notification = new Notification(title, options);
-        thisRegistration.active.postMessage(payload)
     });
 
     messaging.getToken({vapidKey: 'BP8XWh3uBqAoApqCH4vOWpH0FOv9fa3oSeRt3pMXdiNySM1bbvweG-ZeBInVT3OhysNMH--aiucHzjkWRFxoXxA'}).then((currentToken) => {
