@@ -35,7 +35,7 @@
     messaging.onMessage((payload) => {
         console.log('Message received. ', payload);
         // Update the UI to include the received message.
-        // console.log(payload);
+        console.log(payload);
         var title = payload.data.title;
         var options = {
             body: payload.data.body
