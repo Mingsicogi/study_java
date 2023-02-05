@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/aws/pom.xml" />
         <option value="$PROJECT_DIR$/server_push/pom.xml" />
         <option value="$PROJECT_DIR$/jhipster-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/theory/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
