@@ -24,6 +24,24 @@ public class WebPush {
     private final FirebaseMessaging firebaseMessaging;
     private final Set<String> FCM_WEB_TOKEN_STORAGE = new HashSet<>();
 
+    /**
+     * 서버에 push token 저장
+     *
+     * @param token
+     * @return
+     */
+    @GetMapping("/serverPush/fcm/saveToken")
+    public ResponseEntity<String> fcmTokenSave(@RequestParam("token") String token) {
+        FCM_WEB_TOKEN_STORAGE.add(token);
+        return ResponseEntity.ok(token + " save success!");
+    }
+
+    /**
+     * 메시지 푸시
+     *
+     * @param msg
+     * @return
+     */
     @ResponseBody
     @GetMapping("/serverPush/fcm/send")
     public ResponseEntity<String> fcmWebPush(@RequestParam("msg") String msg) {
@@ -41,12 +59,6 @@ public class WebPush {
         }
 
         return ResponseEntity.ok(msg + " send success!");
-    }
-
-    @GetMapping("/serverPush/fcm/saveToken")
-    public ResponseEntity<String> fcmTokenSave(@RequestParam("token") String token) {
-        FCM_WEB_TOKEN_STORAGE.add(token);
-        return ResponseEntity.ok(token + " save success!");
     }
 
     @GetMapping("/serverPush/fcm")

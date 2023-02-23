@@ -38,7 +38,9 @@
         // console.log(payload);
         var title = payload.data.title;
         var options = {
-            body: payload.data.body
+            body: payload.data.body,
+            icon: 'http://localhost:8080/images/favicon.ico',
+            url: 'https://floor.line.games'
         };
 
         Notification.requestPermission().then((permission) => {
