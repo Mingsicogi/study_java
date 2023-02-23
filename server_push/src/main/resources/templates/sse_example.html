@@ -2,12 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SSE Example</title>
+    <title>Notification Test Page</title>
 </head>
+
 <body>
+    <h1>SSE PUSH</h1>
+
+</body>
 
 <script>
-    const sse = new EventSource("")
+    const eventSource = new EventSource('/connect');
+
+    eventSource.addEventListener("minssogi-web-push-sse", function (payload) {
+        console.log(payload.data);
+
+        const data = JSON.parse(payload.data);
+
+        var title = data.title;
+        var options = {
+            body: data.body
+        };
+
+        var notification = new Notification(title, options);
+    })
+
 </script>
-</body>
 </html>
