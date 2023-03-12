@@ -7,18 +7,25 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="design_pattern" />
+        <module name="webflux" />
+        <module name="tsdb" />
+        <module name="resilience4j" />
         <module name="ehcache" />
         <module name="server_push" />
         <module name="caffeine" />
         <module name="java" />
-        <module name="design_pattern" />
-        <module name="webflux" />
+        <module name="rate_limiting" />
         <module name="http2" />
-        <module name="tsdb" />
         <module name="aws" />
         <module name="guava" />
         <module name="theory" />
-        <module name="resilience4j" />
+      </profile>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.26/8f8cf0372abf564913e9796623aac4c8ea44025a/lombok-1.18.26.jar" />
+        </processorPath>
       </profile>
       <profile name="Annotation profile for Shop" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -47,6 +54,8 @@
     <bytecodeTargetLevel>
       <module name="async" target="11" />
       <module name="mail" target="11" />
+      <module name="rate_limiting.main" target="11" />
+      <module name="rate_limiting.test" target="11" />
       <module name="resilience4j_demo" target="11" />
     </bytecodeTargetLevel>
   </component>
@@ -61,6 +70,7 @@
       <module name="http2" options="-parameters" />
       <module name="java" options="-parameters" />
       <module name="mail" options="-parameters" />
+      <module name="rate_limiting" options="-parameters" />
       <module name="resilience4j" options="-parameters" />
       <module name="resilience4j_demo" options="-parameters" />
       <module name="server_push" options="-parameters" />

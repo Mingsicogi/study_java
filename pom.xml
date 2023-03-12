@@ -18,6 +18,7 @@
         <module>mail</module>
         <module>http2</module>
         <module>server_push</module>
+        <module>rate_limiting</module>
     </modules>
 
     <parent>
