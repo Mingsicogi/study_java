@@ -1,0 +1,4 @@
+spring:
+  redis:
+    host: ec2-52-79-62-104.ap-northeast-2.compute.amazonaws.com
+    database: 0
