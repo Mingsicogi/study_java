@@ -17,7 +17,7 @@ public class LoginController {
 
     private final RedisTemplate<String, String> redisTemplate;
 
-    private final Long LOGIN_REQUEST_LIMIT_WHILE_A_SECOND = 2L;
+    private final Long LOGIN_REQUEST_LIMIT_WHILE_A_SECOND = 500L;
     private final String LOGIN_REQUEST_COUNT_KEY = "loginRequestCount";
 
     @PostMapping("/wrong/race_condition/login")
@@ -51,7 +51,7 @@ public class LoginController {
 
         Long loginRequestCount = redisTemplate.opsForValue().increment(LOGIN_REQUEST_COUNT_KEY); // 로그인 요청 횟수가 얼마인지 조회
         if (loginRequestCount.equals(1L)) {
-            redisTemplate.expire(LOGIN_REQUEST_COUNT_KEY, 1L, TimeUnit.SECONDS);
+            redisTemplate.expire(LOGIN_REQUEST_COUNT_KEY, 10L, TimeUnit.SECONDS);
         }
 
         if (loginRequestCount > LOGIN_REQUEST_LIMIT_WHILE_A_SECOND) { // 기준치를 넘었다면 429 에러를 반환
