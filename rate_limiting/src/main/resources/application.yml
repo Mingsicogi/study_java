@@ -17,4 +17,4 @@ server:
   port: 11555
   tomcat:
     threads:
-      max: 10
+      max: 200
