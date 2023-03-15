@@ -34,7 +34,7 @@ import java.util.concurrent.CompletionStage;
 public class RedisConfiguration {
 
 //    private final String REDIS_HOST = "localhost";
-    private final String REDIS_HOST = "52.78.41.78"; // network latency를 늘리기 위해 AWS EC2에 Redis를 설치
+    private final String REDIS_HOST = "localhost"; // network latency를 늘리기 위해 AWS EC2에 Redis를 설치
     private final int REDIS_PORT = 6379;
     private final String REDIS_CON_URL = "redis://" + REDIS_HOST + ":" + REDIS_PORT;
 
