@@ -1,20 +1,30 @@
 
-#spring:
-#  redis:
-#    host: 127.0.0.1
-#    database: 0
-#    lettuce:
-#      pool:
-#        max-active: 50
-#        max-wait: 10ms
-#        max-idle: 50
-#        min-idle: 50
-#    connect-timeout: 10ms
-#    timeout: 1000ms
+spring:
+  redis:
+    host: localhost
+    database: 0
+    lettuce:
+      pool:
+        max-active: 1
+        max-wait: 100ms
+        max-idle: 1
+        min-idle: 1
+    connect-timeout: 100ms
+    timeout: 100ms
+
 
 
 server:
   port: 11555
   tomcat:
+    connection-timeout: 1000
     threads:
-      max: 200
+      max: 1
+
+logging:
+  level:
+    io.lettuce.core: ERROR
+    org.springframework.web: ERROR
+    org.springframework.boot: ERROR
+    minssogi.study.rate_limiting.redis: INFO
+    org.apache: ERROR
