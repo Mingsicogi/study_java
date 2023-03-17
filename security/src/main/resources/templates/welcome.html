@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: "http://localhost:8080/test",
+                success: function(data) {
+                    $("#iframe-container").html(data);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<h1>OUTER HTML</h1>
+<div id="iframe-container"></div>
+</body>
+</html>
