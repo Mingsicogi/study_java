@@ -1,0 +1,15 @@
+server:
+  port: 11555
+
+spring:
+  redis:
+    client-type: lettuce
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    lettuce:
+      pool:
+        enabled: true
+        max-active: 500
+        max-idle: 500
+        min-idle: 500
