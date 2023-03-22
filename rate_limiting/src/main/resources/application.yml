@@ -1,25 +1,24 @@
-
 spring:
   redis:
-    host: localhost
+    client-type: lettuce
+    host: 127.0.0.1
+    port: 6379
     database: 0
     lettuce:
       pool:
-        max-active: 1
-        max-wait: 100ms
-        max-idle: 1
-        min-idle: 1
-    connect-timeout: 100ms
-    timeout: 100ms
+        enabled: true
+        max-active: 8
+        max-idle: 8
+        min-idle: 8
+
 
 
 
 server:
   port: 11555
   tomcat:
-    connection-timeout: 1000
     threads:
-      max: 1
+      max: 500
 
 logging:
   level:

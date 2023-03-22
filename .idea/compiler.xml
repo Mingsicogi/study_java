@@ -15,6 +15,7 @@
         <module name="server_push" />
         <module name="caffeine" />
         <module name="java" />
+        <module name="rate_limiting_webflux" />
         <module name="rate_limiting" />
         <module name="http2" />
         <module name="aws" />
@@ -71,6 +72,7 @@
       <module name="java" options="-parameters" />
       <module name="mail" options="-parameters" />
       <module name="rate_limiting" options="-parameters" />
+      <module name="rate_limiting_webflux" options="-parameters" />
       <module name="resilience4j" options="-parameters" />
       <module name="resilience4j_demo" options="-parameters" />
       <module name="server_push" options="-parameters" />

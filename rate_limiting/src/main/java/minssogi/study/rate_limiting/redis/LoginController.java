@@ -23,7 +23,7 @@ import java.util.concurrent.CompletionStage;
 public class LoginController {
 
 //    private final RedisTemplate<String, String> redisTemplate;
-    private final RedisCommands<String, String> redisCommands;
+//    private final RedisCommands<String, String> redisCommands;
     private final Long LOGIN_REQUEST_LIMIT_WHILE_A_SECOND = 500L;
     private final String LOGIN_REQUEST_COUNT_KEY = "loginRequestCount";
 

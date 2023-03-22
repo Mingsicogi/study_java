@@ -14,6 +14,7 @@
         <option value="$PROJECT_DIR$/jhipster-demo/pom.xml" />
         <option value="$PROJECT_DIR$/theory/pom.xml" />
         <option value="$PROJECT_DIR$/rate_limiting/pom.xml" />
+        <option value="$PROJECT_DIR$/rate_limiting_webflux/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
