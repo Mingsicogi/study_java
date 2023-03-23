@@ -75,6 +75,7 @@
       <module name="rate_limiting_webflux" options="-parameters" />
       <module name="resilience4j" options="-parameters" />
       <module name="resilience4j_demo" options="-parameters" />
+      <module name="security" options="-parameters" />
       <module name="server_push" options="-parameters" />
       <module name="study" options="" />
       <module name="theory" options="-parameters" />
