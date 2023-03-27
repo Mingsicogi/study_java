@@ -38,8 +38,7 @@ import java.util.concurrent.CompletionStage;
 @EnableMBeanExport(registration = RegistrationPolicy.IGNORE_EXISTING)
 public class RedisConfiguration {
 
-//    private final String REDIS_HOST = "localhost";
-    private final String REDIS_HOST = "127.0.0.1"; // network latency를 늘리기 위해 AWS EC2에 Redis를 설치
+    private final String REDIS_HOST = "localhost";
     private final int REDIS_PORT = 6379;
     private final String REDIS_CON_URL = "redis://" + REDIS_HOST + ":" + REDIS_PORT;
 
