@@ -15,18 +15,21 @@ import java.io.IOException;
 public class SpringStartApplication {
 
     public static void main(String[] args) {
-        TomcatServletWebServerFactory tomcatServletWebServerFactory = new TomcatServletWebServerFactory();
 
+        TomcatServletWebServerFactory tomcatServletWebServerFactory = new TomcatServletWebServerFactory();
 
         WebServer tomcatWebServer = tomcatServletWebServerFactory.getWebServer(new ServletContextInitializer() {
             @Override
             public void onStartup(ServletContext servletContext) throws ServletException {
                 servletContext.addServlet("HelloController", new HttpServlet() {
+
+                    HelloController helloController = new HelloController();
                     @Override
                     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-                        resp.getWriter().write("Hello World");
+                        String msg = req.getParameter("msg");
+                        String response = helloController.hello(msg);
+                        resp.getWriter().write(response);
                     }
-
                 }).addMapping("/hello");
             }
         });
