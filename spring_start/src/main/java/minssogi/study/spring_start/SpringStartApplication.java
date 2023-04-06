@@ -8,6 +8,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServer;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 
 import java.io.IOException;
 
@@ -29,6 +32,9 @@ public class SpringStartApplication {
                         String msg = req.getParameter("msg");
                         String response = helloController.hello(msg);
                         resp.getWriter().write(response);
+                        resp.setStatus(HttpStatus.OK.value());
+                        resp.addHeader(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE
+                        );
                     }
                 }).addMapping("/hello");
             }
