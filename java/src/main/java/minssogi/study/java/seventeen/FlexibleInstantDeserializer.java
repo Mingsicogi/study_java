@@ -47,7 +47,7 @@ public class FlexibleInstantDeserializer extends JsonDeserializer<Instant> {
             } catch (Exception ignored) { }
         }
 
-        throw new DateTimeParseException("Failed to parse Instant value : " + text, text, 0);
+        throw new RuntimeException("Failed to parse Instant value : " + text);
     }
 
     public void addFormatter(DateTimeFormatter formatter) {
