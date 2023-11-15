@@ -3,6 +3,7 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/rate_limiting" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_start" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -15,6 +16,7 @@
         <option value="$PROJECT_DIR$/theory/pom.xml" />
         <option value="$PROJECT_DIR$/rate_limiting/pom.xml" />
         <option value="$PROJECT_DIR$/rate_limiting_webflux/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_start/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

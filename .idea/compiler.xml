@@ -18,15 +18,10 @@
         <module name="rate_limiting_webflux" />
         <module name="rate_limiting" />
         <module name="http2" />
+        <module name="spring_start" />
         <module name="aws" />
         <module name="guava" />
         <module name="theory" />
-      </profile>
-      <profile name="Gradle Imported" enabled="true">
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.26/8f8cf0372abf564913e9796623aac4c8ea44025a/lombok-1.18.26.jar" />
-        </processorPath>
       </profile>
       <profile name="Annotation profile for Shop" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -77,6 +72,7 @@
       <module name="resilience4j_demo" options="-parameters" />
       <module name="security" options="-parameters" />
       <module name="server_push" options="-parameters" />
+      <module name="spring_start" options="-parameters" />
       <module name="study" options="" />
       <module name="theory" options="-parameters" />
       <module name="tsdb" options="-parameters" />

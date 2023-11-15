@@ -1,5 +1,6 @@
 package minssogi.study.rate_limiting.redis;
 
+import io.lettuce.core.RedisFuture;
 import io.lettuce.core.api.StatefulRedisConnection;
 import io.lettuce.core.api.async.RedisAsyncCommands;
 import io.lettuce.core.api.sync.RedisCommands;
@@ -19,6 +20,7 @@ import org.springframework.web.context.request.async.DeferredResult;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -57,13 +59,15 @@ public class RedisCommandsTestController {
 
     private final RedisAsyncCommands<String, String> redisAsyncCommands;
     @GetMapping("/single/async")
-    public DeferredResult<Long> singleAsync() {
-        DeferredResult<Long> deferredResult = new DeferredResult<>();
-        redisAsyncCommands.incr("singleAsync").thenAcceptAsync(setValue -> {
-            deferredResult.setResult(setValue);
-//            log.info("##### [{} {}] singleSync : {}", Thread.currentThread(), System.currentTimeMillis(), setValue);
-        });
-        return deferredResult;
+    @SneakyThrows
+    public ResponseEntity<Long> singleAsync() {
+//        DeferredResult<Long> deferredResult = new DeferredResult<>();
+//        redisAsyncCommands.incr("singleAsync").thenAcceptAsync(setValue -> {
+//            deferredResult.setResult(setValue);
+////            log.info("##### [{} {}] singleSync : {}", Thread.currentThread(), System.currentTimeMillis(), setValue);
+//        });
+//        return deferredResult;
+        return ResponseEntity.ok(redisAsyncCommands.incr("singleAsync").get(100, TimeUnit.MILLISECONDS));
     }
 
     private final GenericObjectPool<StatefulRedisConnection<String, String>> redisSyncConnectionPool;
@@ -79,44 +83,40 @@ public class RedisCommandsTestController {
 
     private final CompletionStage<BoundedAsyncPool<StatefulRedisConnection<String, String>>> redisAsyncConnectionPool;
 
+    @SneakyThrows
     @GetMapping("/single/asyncConnectionPool")
-    public DeferredResult<Long> poolAsync() {
-        DeferredResult<Long> deferredResult = new DeferredResult<>();
-
-        redisAsyncConnectionPool
-                .thenComposeAsync(BoundedAsyncPool::acquire)
-                .thenApplyAsync(connection -> {
-                    try (connection) {
-                        return connection.async();
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                })
-                .thenApplyAsync(asyncCommand -> asyncCommand.incr("connectionPoolAsync"))
-                .thenAcceptAsync(setValue -> setValue.thenAcceptAsync(incrVal -> {
-                            deferredResult.setResult(incrVal);
-//                        log.info("##### [{} {}] poolAsync : {}", Thread.currentThread(), System.currentTimeMillis(), incrVal);
-                        }
-                ));
-
+    public ResponseEntity<Long> poolAsync() {
+//        DeferredResult<Long> deferredResult = new DeferredResult<>();
 //        redisAsyncConnectionPool
-//                .thenCompose(BoundedAsyncPool::acquire)
-//                .thenApply(connection -> {
+//                .thenComposeAsync(BoundedAsyncPool::acquire)
+//                .thenApplyAsync(connection -> {
 //                    try (connection) {
 //                        return connection.async();
 //                    } catch (Exception e) {
 //                        throw new RuntimeException(e);
 //                    }
 //                })
-//                .thenApply(asyncCommand -> asyncCommand.incr("connectionPoolAsync"))
-//                .thenAccept(setValue -> setValue.thenAccept(incrVal -> {
+//                .thenApplyAsync(asyncCommand -> asyncCommand.incr("connectionPoolAsync"))
+//                .thenAcceptAsync(setValue -> setValue.thenAcceptAsync(incrVal -> {
 //                            deferredResult.setResult(incrVal);
 ////                        log.info("##### [{} {}] poolAsync : {}", Thread.currentThread(), System.currentTimeMillis(), incrVal);
 //                        }
 //                ));
+//        return deferredResult;
 
-
-        return deferredResult;
+        return ResponseEntity.ok(redisAsyncConnectionPool
+                .thenCompose(BoundedAsyncPool::acquire)
+                .thenApply(connection -> {
+                    try (connection) {
+                        return connection.async();
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                })
+                .thenApply(asyncCommand -> asyncCommand.incr("connectionPoolAsync"))
+                .thenCompose(CompletionStage::toCompletableFuture)
+                .toCompletableFuture()
+                .get(100, TimeUnit.MILLISECONDS));
     }
 }
 
