@@ -2,6 +2,7 @@ package minssogi.study.java;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import minssogi.study.java.seventeen.ObjectMapperUtils;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
@@ -166,5 +167,21 @@ public class ObjectMapperUtilsTest {
         Instant instant = objectMapper.convertValue(yyyyMMddTHHmmssX, Instant.class);
 
         System.out.println(instant);
+    }
+
+    @Test
+    public void test21() {
+        Assertions.assertThrows(RuntimeException.class, () -> {
+            String yyyyMMddTHHmmssX = "12345678T90.";
+            objectMapper.convertValue(yyyyMMddTHHmmssX, Instant.class);
+        });
+    }
+
+    @Test
+    public void test22() {
+        Assertions.assertThrows(RuntimeException.class, () -> {
+            String yyyyMMddTHHmmssX = "1234567890.sdf";
+            objectMapper.convertValue(yyyyMMddTHHmmssX, Instant.class);
+        });
     }
 }

@@ -11,7 +11,6 @@ import java.time.DateTimeException;
 import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
@@ -25,7 +24,7 @@ public class FlexibleInstantDeserializer extends JsonDeserializer<Instant> {
     private static final List<Function<String, Instant>> PARSER_LIST = new ArrayList<>();
 
     static {
-        FORMATTER_LIST.add(DEFAULT_ISO_FORMATTER);
+        FORMATTER_LIST.add(DEFAULT_ISO_FORMATTER); // first set popular formatter to performance benefit
     }
 
     @Override
